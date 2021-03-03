@@ -1,0 +1,31 @@
+# you can put the two modules on the same line 
+import random, time 
+
+# put spaces around the equals sign and after every comma 
+# it makes it easier to read 
+answers = ['Rock', 'Paper', 'Scissor'] 
+
+print("Welcome to the legendary duel of rock, paper, scissor!") 
+
+#Make your variables clear and understandable 
+
+userChoice = str.lower(input("Which one are you going to choose?"))
+
+print(answers[0])
+time.sleep(1)
+print(answers[1])
+time.sleep(1)
+print(answers[2], '\n')
+time.sleep(2)
+
+# instead of writing two time.sleeps you can just put a two instead of the one 
+#Make sure your variables are something you can understand by reading them
+computerChoice = str.lower(random.choice(answers))
+
+print('The Computer picked',computerChoice + '!') 
+
+if (userChoice == computerChoice):
+    print("That's a tie!")
+
+#instead of else you could write elif and check you could work out a way of 
+#testing whether or not they would beat each other or not else: print("GG")
