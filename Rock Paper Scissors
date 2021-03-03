@@ -1,0 +1,38 @@
+# Rock Paper Scissors
+# Luke Peterson
+
+import random
+
+choiceQ = '''\nRock Paper or Scissors
+Type 1 for rock
+Type 2 for paper
+Type 3 for scissors
+'''
+options = ['rock', 'paper', 'scissors']
+
+playAgain = 'play'
+
+while playAgain == 'play':
+    choice = int(input(choiceQ))
+    computerChoice = random.randint(1,3)
+
+    while not choice in range(1, 4):
+        print('You may have not picked a number, pick again.\n')
+        choice = int(input(choiceQ))
+
+    while choice == computerChoice:
+        print('You picked the same as CPU, pick again')
+        computerChoice = random.randint(1,3)
+        choice = input(choiceQ)
+        if str.isnumeric(playAgain) == True:
+            choice == int(choice)
+
+    if choice == computerChoice - 1 or choice == 3 and computerChoice == 1:
+        print('CPU picked', options[computerChoice - 1], 'you lose')
+    elif choice == computerChoice + 1 or choice == 1 and computerChoice == 3:
+        print('CPU picked', options[computerChoice - 1], 'you win')
+
+    playAgain = input('\nDo you want to play again?\n\
+type \'play\' to play again, press any other key to quit.\n')
+    if str.isnumeric(playAgain) == False:
+        playAgain = str.lower(playAgain)
