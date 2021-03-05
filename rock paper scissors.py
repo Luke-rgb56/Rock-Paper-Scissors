@@ -16,29 +16,21 @@ def countdown(seconds):
         print(options[i])
         time.sleep(seconds)
 
-def intInputChecker(variable):
-    if str.isnumeric(variable) == True:
-        intChoice = int(variable)
-    return intChoice
-
 playAgain = 'play'
 
 while playAgain == 'play':
-    choice = input(choiceQ)
+    choice = int(input(choiceQ))
     print(choice)
-    intInputChecker(choice)
     computerChoice = random.randint(1,3)
 
-    while not intChoice in range(1, 4):
+    while not choice in range(1, 4):
         print('You may have not picked a number, pick again.\n')
-        choice = input(choiceQ)
-        intInputChecker(choice)
+        choice = int(input(choiceQ))
 
-    while intChoice == computerChoice:
+    while choice == computerChoice:
         print('You picked the same as CPU, pick again')
         computerChoice = random.randint(1,3)
-        choice = input(choiceQ)
-        intInputChecker(choice) 
+        choice = int(input(choiceQ)) 
 
     countdown(1)
 
@@ -51,5 +43,7 @@ while playAgain == 'play':
 
     playAgain = str.lower(input('\nDo you want to play again?\n'
                                 'type \'play\' to play again, press any other key to quit.\n'))
+    
+    
     
     
